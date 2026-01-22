@@ -3,9 +3,12 @@ import json
 import os
 
 # --- CONFIGURAÇÃO ---
-NOTION_TOKEN = os.getenv("NOTION_TOKEN", "")
-DB_ID_PROJETOS = "174c754a47f480aa97befabde46e3d44"
-DB_ID_TAREFAS = "174c754a47f48193b5e2ff55c7776fbc"
+NOTION_TOKEN = os.getenv("NOTION_TOKEN")
+DB_ID_PROJETOS = os.getenv("NOTION_DB_ID_PROJETOS")
+DB_ID_TAREFAS = os.getenv("NOTION_DB_ID_TAREFAS")
+
+if not NOTION_TOKEN or not DB_ID_PROJETOS or not DB_ID_TAREFAS:
+    raise RuntimeError("Variáveis ausentes: NOTION_TOKEN / NOTION_DB_ID_PROJETOS / NOTION_DB_ID_TAREFAS")
 
 notion = NotionClient(auth=NOTION_TOKEN)
 

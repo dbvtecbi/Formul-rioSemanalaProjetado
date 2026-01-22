@@ -15,6 +15,7 @@ from openai import OpenAI
 # --- CONFIGURAÇÃO PADRÃO ---
 LOGO_PADRAO = "logo.jpg"
 icone_padrao = "Icon.ico"
+page_icon = icone_padrao if os.path.exists(icone_padrao) else "📊"
 DB_FILE = "tarefas_dbv.csv"
 
 # CORES DBV (RGB)
@@ -25,10 +26,10 @@ COR_VERMELHO_SUAVE = (180, 60, 60)
 COR_AZUL_S2 = (52, 73, 94)
 
 # --- CHAVE API OPENAI ---
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 st.set_page_config(
-    page_title="Relatório Oficial DBV", page_icon=icone_padrao, layout="wide"
+    page_title="Relatório Oficial DBV", page_icon=page_icon, layout="wide"
 )
 
 
@@ -285,7 +286,7 @@ st.title("📊 Relatório Oficial DBV")
 
 with st.sidebar:
     st.header("🤖 Configuração")
-    api_key = st.text_input("OpenAI API Key", value=OPENAI_API_KEY, type="password")
+    api_key = st.text_input("OpenAI API Key", value="", type="password")
 
 tab1, tab2, tab3, tab4 = st.tabs(
     [

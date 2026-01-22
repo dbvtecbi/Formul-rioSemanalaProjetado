@@ -4,10 +4,11 @@ from datetime import datetime, date
 import os
 
 # --- CONFIGURAÇÕES ---
-NOTION_TOKEN = os.getenv("NOTION_TOKEN", "")
+NOTION_TOKEN = os.getenv("NOTION_TOKEN")
+DB_ID_DEMANDAS = os.getenv("NOTION_DB_ID_DEMANDAS")
 
-# ID do novo banco de dados fornecido
-DB_ID_DEMANDAS = "52240767dc1a4bc4badfca99e454811d?v"
+if not NOTION_TOKEN or not DB_ID_DEMANDAS:
+    raise RuntimeError("Variáveis ausentes: NOTION_TOKEN / NOTION_DB_ID_DEMANDAS")
 
 # Inicializa o cliente
 notion = Client(auth=NOTION_TOKEN)
