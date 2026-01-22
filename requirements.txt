@@ -1,0 +1,8 @@
+streamlit
+pandas
+fpdf
+plotly
+matplotlib
+Pillow
+notion-client==2.2.1
+google-generativeai
