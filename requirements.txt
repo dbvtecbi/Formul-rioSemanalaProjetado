@@ -6,3 +6,4 @@ matplotlib
 Pillow
 notion-client==2.2.1
 google-generativeai
+openai
