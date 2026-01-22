@@ -8,6 +8,12 @@ NOTION_TOKEN = os.getenv("NOTION_TOKEN")
 DB_ID_PROJETOS = os.getenv("NOTION_DB_ID_PROJETOS")
 DB_ID_TAREFAS = os.getenv("NOTION_DB_ID_TAREFAS")
 
+# Debug temporário para validar variáveis no Railway
+print("ENV CHECK:",
+      "NOTION_TOKEN:", bool(os.getenv("NOTION_TOKEN")),
+      "NOTION_DB_ID_PROJETOS:", bool(os.getenv("NOTION_DB_ID_PROJETOS")),
+      "NOTION_DB_ID_TAREFAS:", bool(os.getenv("NOTION_DB_ID_TAREFAS")))
+
 if not NOTION_TOKEN or not DB_ID_PROJETOS or not DB_ID_TAREFAS:
     raise RuntimeError("Variáveis ausentes: NOTION_TOKEN / NOTION_DB_ID_PROJETOS / NOTION_DB_ID_TAREFAS")
 
