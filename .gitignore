@@ -52,5 +52,4 @@ Thumbs.db
 *.log
 
 # CSV files (dados sensíveis)
-*.csv
 !requirements.csv
